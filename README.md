@@ -52,6 +52,10 @@ The chatbot is built on Streamlit, providing a clean, two-pane conversational in
 * Persistent sessions: All histories are saved in a local db.json file, allowing the chatbot to resume conversations across sessions.
 * Responsive input/output: After each user message, the assistant’s response is appended in real time.
 
+<img width="1508" height="743" alt="Screenshot 2025-08-08 at 00 14 31" src="https://github.com/user-attachments/assets/2594e893-d95b-432e-939e-41b101e8c510" />
+<img width="1499" height="738" alt="Screenshot 2025-08-08 at 00 15 09" src="https://github.com/user-attachments/assets/7e3bd0f2-6923-4658-9619-b53f81f1e6d8" />
+
+
 ⸻
 
 ### **📍How the Chatbot Works (OpenAI API + Knowledge Base)**
@@ -112,6 +116,10 @@ The backend converts raw questionnaire results into structured, AI-ready insight
 	* Purpose: Retrieves example Q&A pairs directly from the source data to illustrate parent/teen differences when needed.
 	* Filtering options: Search by keywords in the question text, filter by dimension, or focus on a specific month.
 	* Use case: Could power a “Show more” button that surfaces the exact statements that informed the chatbot’s advice.
+
+<img width="1499" height="739" alt="Screenshot 2025-08-08 at 00 16 07" src="https://github.com/user-attachments/assets/da619e71-45f5-44f8-aca9-eaa372fdebf4" />
+<img width="1498" height="737" alt="Screenshot 2025-08-08 at 00 18 00" src="https://github.com/user-attachments/assets/dacb65b2-a12c-4d55-a5a2-f69562404043" />
+
 
 ⸻
 
