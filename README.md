@@ -43,7 +43,7 @@ flowchart LR
     end
 ```
 
-### **Chatbot UI (app.py)**
+### **📍Chatbot UI (app.py)**
 
 The chatbot is built on Streamlit, providing a clean, two-pane conversational interface:
 
@@ -54,7 +54,7 @@ The chatbot is built on Streamlit, providing a clean, two-pane conversational in
 
 ⸻
 
-### How the Chatbot Works (OpenAI API + Knowledge Base)
+### **📍How the Chatbot Works (OpenAI API + Knowledge Base)**
 
 * Base model: The chatbot uses OpenAI’s gpt-4o-mini model for fast, high-quality text generation.
 * Dual context injection: Each request includes:
@@ -65,7 +65,7 @@ The chatbot is built on Streamlit, providing a clean, two-pane conversational in
 
 ⸻
 
-### Profile Analysis Logic (Backend)
+### **📍Profile Analysis Logic (Backend)**
 
 The backend converts raw questionnaire results into structured, AI-ready insights. The process has five key stages:
 
@@ -115,14 +115,14 @@ The backend converts raw questionnaire results into structured, AI-ready insight
 
 ⸻
 
-### Persistent Memory Across Chats
+### **📍Persistent Memory Across Chats**
 * In-memory session state: During an active conversation, st.session_state.history maintains the complete dialogue for contextual replies.
 * Local persistence: At the end of each exchange, histories is saved to db.json so that returning users pick up exactly where they left off.
 * History trimming: Only the last few turns (e.g., 4–8 messages) are included in the prompt to balance context relevance and performance.
 
 ⸻
 
-### Performance Optimizations for Faster Responses
+### **📍Performance Optimizations for Faster Responses**
 
 Several techniques were implemented to reduce perceived and actual latency:
 
