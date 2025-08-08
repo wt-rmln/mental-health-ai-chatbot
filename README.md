@@ -56,12 +56,12 @@ The chatbot is built on Streamlit, providing a clean, two-pane conversational in
 
 ### How the Chatbot Works (OpenAI API + Knowledge Base)
 
-	•	Base model: The chatbot uses OpenAI’s gpt-4o-mini model for fast, high-quality text generation.
-	•	Dual context injection: Each request includes:
-		1.	A system prompt with role instructions (summarization style, empathy, constraints).
-		2.	A profile context generated from questionnaire data via build_chat_context() in data_processing.py.
-	•	Knowledge grounding: The injected context includes top gaps, trends, and notable changes between the teen’s and parent’s perspectives, ensuring answers are grounded in actual profile data.
-	•	Adaptive length: The prompt is trimmed to recent messages and the most relevant profile insights to keep token usage low for faster responses.
+* Base model: The chatbot uses OpenAI’s gpt-4o-mini model for fast, high-quality text generation.
+* Dual context injection: Each request includes:
+	1.	A system prompt with role instructions (summarization style, empathy, constraints).
+	2.	A profile context generated from questionnaire data via build_chat_context() in data_processing.py.
+* Knowledge grounding: The injected context includes top gaps, trends, and notable changes between the teen’s and parent’s perspectives, ensuring answers are grounded in actual profile data.
+* Adaptive length: The prompt is trimmed to recent messages and the most relevant profile insights to keep token usage low for faster responses.
 
 ⸻
 
@@ -70,27 +70,25 @@ The chatbot is built on Streamlit, providing a clean, two-pane conversational in
 The backend converts raw questionnaire results into structured, AI-ready insights. The process has five key stages:
 
 1. **Load and Normalize Raw Data**
-   
-	•	File scan: For the selected child, the backend scans ./data/<child_slug>/*.json for all available monthly questionnaire files (both parent and teen).
-	•	Parse metadata: Extracts the child name, role (Parent / Teen), and timestamp from each file’s metadata.
-	•	Answer cleanup:
-	•	Maps answer choices (e.g., "A)", "B)") to numeric scores and text labels for analysis.
-	•	Handles different formats like "B)", "b.", or "B ) Something" robustly.
-	•	Dimension tagging: Associates each question with a thematic dimension (e.g., Self-Control, Care, Goal Persistence) based on the raw data.
+* File scan: For the selected child, the backend scans ./data/<child_slug>/*.json for all available monthly questionnaire files (both parent and teen).
+* Parse metadata: Extracts the child name, role (Parent / Teen), and timestamp from each file’s metadata.
+* Answer cleanup:
+  * Maps answer choices (e.g., "A)", "B)") to numeric scores and text labels for analysis.
+  * Handles different formats like "B)", "b.", or "B ) Something" robustly.
+* Dimension tagging: Associates each question with a thematic dimension (e.g., Self-Control, Care, Goal Persistence) based on the raw data.
 
-3. **Pair Parent and Teen Responses**
-   
-	•	Matching strategy: For each month and dimension, parent and teen responses are matched using:
+2. **Pair Parent and Teen Responses**
+* Matching strategy: For each month and dimension, parent and teen responses are matched using:
 		1.	Exact Question ID match (after canonicalizing formatting)
 		2.	Exact question text match (normalized for casing, punctuation)
 		3.	Fuzzy matching (Jaccard similarity) within the same dimension to catch near-duplicates.
-	•	Output: A unified table of matched Q&A pairs with:
+* Output: A unified table of matched Q&A pairs with:
 	•	Dimension name
 	•	Question text (parent & teen)
 	•	Parent numeric & text answer
 	•	Teen numeric & text answer
 
-5. **Compute Dimension-Level Metrics Over Time**
+3. **Compute Dimension-Level Metrics Over Time**
    
 	•	Monthly aggregation: For each child × month × dimension:
 	•	Calculate parent_avg and teen_avg (mean numeric scores).
@@ -101,7 +99,7 @@ The backend converts raw questionnaire results into structured, AI-ready insight
 	•	Notable changes: Dimensions where the gap changed by more than a threshold (e.g., ±1.5) month-to-month.
 	•	Long-term trends: Dimensions with consistently increasing or decreasing gaps over multiple months.
 
-7. **Build LLM Context Strings**
+4. **Build LLM Context Strings**
    
 	•	Context composition: build_chat_context(child_name, …) creates a compact, human-readable profile summary that includes:
 	•	Latest snapshot: Top N dimensions ranked by absolute gap size.
@@ -111,7 +109,7 @@ The backend converts raw questionnaire results into structured, AI-ready insight
 	•	Guidance line: A short instruction to the LLM on how to use the data.
 	•	Prompt optimization: Only the most relevant dimensions are included to minimize token usage and speed up model inference.
 
-9. **Optional Dual-Perspective Retrieval**
+5. **Optional Dual-Perspective Retrieval**
     
 	•	Function: retrieve_dual_perspective(child, query/dimension/month, top_k)
 	•	Purpose: Retrieves example Q&A pairs directly from the source data to illustrate parent/teen differences when needed.
