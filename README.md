@@ -31,9 +31,9 @@ aware answers. It is a functional demo of a Chatbot that:
 
 ```mermaid
 flowchart LR
-    A[👤 User] -->|Message| B[💬 Chatbot UI (Streamlit)]
-    B -->|Get profile context| C[🗄️ Data Processing (data_processing.py)]
-    C -->|Top gaps, trends, summary| D[🧠 OpenAI API (gpt-4o-mini)]
+    A[👤 User] -->|Message| B["💬 Chatbot UI (Streamlit)"]
+    B -->|Get profile context| C["🗂 Data Processing (data_processing.py)"]
+    C -->|Top gaps, trends, summary| D["🧠 OpenAI API (gpt-4o-mini)"]
     D -->|Stream tokens| B
     B -->|Display answer live| A
 
@@ -47,10 +47,10 @@ flowchart LR
 
 The chatbot is built on Streamlit, providing a clean, two-pane conversational interface:
 
-	•	Name input & history retrieval: On first load, the user is prompted to enter the child’s name. The name is normalized (lowercase) for matching and to prevent duplicates from casing differences. If past conversations exist, they are loaded for continuity.
-	•	Conversation history display: The chat window renders both user and assistant messages. st.session_state.messages stores messages for rendering, while st.session_state.history stores the full conversation context for backend use.
-	•	Persistent sessions: All histories are saved in a local db.json file, allowing the chatbot to resume conversations across sessions.
-	•	Responsive input/output: After each user message, the assistant’s response is appended in real time.
+* Name input & history retrieval: On first load, the user is prompted to enter the child’s name. The name is normalized (lowercase) for matching and to prevent duplicates from casing differences. If past conversations exist, they are loaded for continuity.
+* Conversation history display: The chat window renders both user and assistant messages. st.session_state.messages stores messages for rendering, while st.session_state.history stores the full conversation context for backend use.
+* Persistent sessions: All histories are saved in a local db.json file, allowing the chatbot to resume conversations across sessions.
+* Responsive input/output: After each user message, the assistant’s response is appended in real time.
 
 ⸻
 
