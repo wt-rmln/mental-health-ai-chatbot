@@ -43,7 +43,7 @@ flowchart LR
     end
 ```
 
-### Chatbot UI (app.py)
+### **Chatbot UI (app.py)**
 
 The chatbot is built on Streamlit, providing a clean, two-pane conversational interface:
 
