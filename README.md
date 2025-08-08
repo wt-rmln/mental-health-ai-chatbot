@@ -46,6 +46,7 @@ flowchart LR
 ### Chatbot UI (app.py)
 
 The chatbot is built on Streamlit, providing a clean, two-pane conversational interface:
+
 	•	Name input & history retrieval: On first load, the user is prompted to enter the child’s name. The name is normalized (lowercase) for matching and to prevent duplicates from casing differences. If past conversations exist, they are loaded for continuity.
 	•	Conversation history display: The chat window renders both user and assistant messages. st.session_state.messages stores messages for rendering, while st.session_state.history stores the full conversation context for backend use.
 	•	Persistent sessions: All histories are saved in a local db.json file, allowing the chatbot to resume conversations across sessions.
@@ -54,10 +55,11 @@ The chatbot is built on Streamlit, providing a clean, two-pane conversational in
 ⸻
 
 ### How the Chatbot Works (OpenAI API + Knowledge Base)
+
 	•	Base model: The chatbot uses OpenAI’s gpt-4o-mini model for fast, high-quality text generation.
 	•	Dual context injection: Each request includes:
-	1.	A system prompt with role instructions (summarization style, empathy, constraints).
-	2.	A profile context generated from questionnaire data via build_chat_context() in data_processing.py.
+		1.	A system prompt with role instructions (summarization style, empathy, constraints).
+		2.	A profile context generated from questionnaire data via build_chat_context() in data_processing.py.
 	•	Knowledge grounding: The injected context includes top gaps, trends, and notable changes between the teen’s and parent’s perspectives, ensuring answers are grounded in actual profile data.
 	•	Adaptive length: The prompt is trimmed to recent messages and the most relevant profile insights to keep token usage low for faster responses.
 
@@ -114,6 +116,7 @@ The backend converts raw questionnaire results into structured, AI-ready insight
 ⸻
 
 ### Persistent Memory Across Chats
+
 	•	In-memory session state: During an active conversation, st.session_state.history maintains the complete dialogue for contextual replies.
 	•	Local persistence: At the end of each exchange, histories is saved to db.json so that returning users pick up exactly where they left off.
 	•	History trimming: Only the last few turns (e.g., 4–8 messages) are included in the prompt to balance context relevance and performance.
@@ -123,6 +126,7 @@ The backend converts raw questionnaire results into structured, AI-ready insight
 ### Performance Optimizations for Faster Responses
 
 Several techniques were implemented to reduce perceived and actual latency:
+
 	•	Streaming responses: Instead of waiting for the entire model output, the assistant streams tokens live (stream=True), so the first words appear within ~1 second.
 	•	Context caching: Profile context (build_chat_context) is computed once per session and reused to avoid repeated heavy processing.
 	•	Token budget optimization: Trimmed conversation history and reduced maximum output tokens from 220 to 140, cutting model computation time.
@@ -130,6 +134,7 @@ Several techniques were implemented to reduce perceived and actual latency:
 	•	Top-N filtering: Limited the number of profile dimensions in context to shrink prompt size and speed API calls.
 
 ## 📈 Performance Evaluation
+
 * Answers are correct and aligned with the provided User Profile data ☑️
 * Responses are consistent and logically follow previous conversation context ☑️
 * The chatbot retains context across multiple user queries ☑️
