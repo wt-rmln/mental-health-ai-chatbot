@@ -70,59 +70,55 @@ The chatbot is built on Streamlit, providing a clean, two-pane conversational in
 The backend converts raw questionnaire results into structured, AI-ready insights. The process has five key stages:
 
 1. **Load and Normalize Raw Data**
-* File scan: For the selected child, the backend scans ./data/<child_slug>/*.json for all available monthly questionnaire files (both parent and teen).
-* Parse metadata: Extracts the child name, role (Parent / Teen), and timestamp from each file’s metadata.
-* Answer cleanup:
-  * Maps answer choices (e.g., "A)", "B)") to numeric scores and text labels for analysis.
-  * Handles different formats like "B)", "b.", or "B ) Something" robustly.
-* Dimension tagging: Associates each question with a thematic dimension (e.g., Self-Control, Care, Goal Persistence) based on the raw data.
+	* File scan: For the selected child, the backend scans ./data/<child_slug>/*.json for all available monthly questionnaire files (both parent and teen).
+	* Parse metadata: Extracts the child name, role (Parent / Teen), and timestamp from each file’s metadata.
+	* Answer cleanup:
+  		* Maps answer choices (e.g., "A)", "B)") to numeric scores and text labels for analysis.
+  		* Handles different formats like "B)", "b.", or "B ) Something" robustly.
+	* Dimension tagging: Associates each question with a thematic dimension (e.g., Self-Control, Care, Goal Persistence) based on the raw data.
 
 2. **Pair Parent and Teen Responses**
-* Matching strategy: For each month and dimension, parent and teen responses are matched using:
+	* Matching strategy: For each month and dimension, parent and teen responses are matched using:
 		1.	Exact Question ID match (after canonicalizing formatting)
 		2.	Exact question text match (normalized for casing, punctuation)
 		3.	Fuzzy matching (Jaccard similarity) within the same dimension to catch near-duplicates.
-* Output: A unified table of matched Q&A pairs with:
-	•	Dimension name
-	•	Question text (parent & teen)
-	•	Parent numeric & text answer
-	•	Teen numeric & text answer
+	* Output: A unified table of matched Q&A pairs with:
+		* Dimension name
+		* Question text (parent & teen)
+		* Parent numeric & text answer
+		* Teen numeric & text answer
 
 3. **Compute Dimension-Level Metrics Over Time**
-   
-	•	Monthly aggregation: For each child × month × dimension:
-	•	Calculate parent_avg and teen_avg (mean numeric scores).
-	•	Compute gap = parent_avg − teen_avg.
-	•	Time series building: Maintain a chronological record of gaps per dimension.
-	•	Trend detection:
-	•	Top gaps: Dimensions with the largest positive or negative gaps in the most recent month.
-	•	Notable changes: Dimensions where the gap changed by more than a threshold (e.g., ±1.5) month-to-month.
-	•	Long-term trends: Dimensions with consistently increasing or decreasing gaps over multiple months.
+	* Monthly aggregation: For each child × month × dimension:
+		* Calculate parent_avg and teen_avg (mean numeric scores).
+		* Compute gap = parent_avg − teen_avg.
+	* Time series building: Maintain a chronological record of gaps per dimension.
+	* Trend detection:
+		* Top gaps: Dimensions with the largest positive or negative gaps in the most recent month.
+		* Notable changes: Dimensions where the gap changed by more than a threshold (e.g., ±1.5) month-to-month.
+		* Long-term trends: Dimensions with consistently increasing or decreasing gaps over multiple months.
 
 4. **Build LLM Context Strings**
-   
-	•	Context composition: build_chat_context(child_name, …) creates a compact, human-readable profile summary that includes:
-	•	Latest snapshot: Top N dimensions ranked by absolute gap size.
-	•	Largest gaps: Highlights where parent and teen perceptions differ most.
-	•	Significant changes: Flags recent shifts in perception.
-	•	Trends: Notes sustained patterns of improvement or decline.
-	•	Guidance line: A short instruction to the LLM on how to use the data.
-	•	Prompt optimization: Only the most relevant dimensions are included to minimize token usage and speed up model inference.
+	* Context composition: build_chat_context(child_name, …) creates a compact, human-readable profile summary that includes:
+	* Latest snapshot: Top N dimensions ranked by absolute gap size.
+	* Largest gaps: Highlights where parent and teen perceptions differ most.
+	* Significant changes: Flags recent shifts in perception.
+	* Trends: Notes sustained patterns of improvement or decline.
+	* Guidance line: A short instruction to the LLM on how to use the data.
+	* Prompt optimization: Only the most relevant dimensions are included to minimize token usage and speed up model inference.
 
 5. **Optional Dual-Perspective Retrieval**
-    
-	•	Function: retrieve_dual_perspective(child, query/dimension/month, top_k)
-	•	Purpose: Retrieves example Q&A pairs directly from the source data to illustrate parent/teen differences when needed.
-	•	Filtering options: Search by keywords in the question text, filter by dimension, or focus on a specific month.
-	•	Use case: Could power a “Show more” button that surfaces the exact statements that informed the chatbot’s advice.
+    * Function: retrieve_dual_perspective(child, query/dimension/month, top_k)
+	* Purpose: Retrieves example Q&A pairs directly from the source data to illustrate parent/teen differences when needed.
+	* Filtering options: Search by keywords in the question text, filter by dimension, or focus on a specific month.
+	* Use case: Could power a “Show more” button that surfaces the exact statements that informed the chatbot’s advice.
 
 ⸻
 
 ### Persistent Memory Across Chats
-
-	•	In-memory session state: During an active conversation, st.session_state.history maintains the complete dialogue for contextual replies.
-	•	Local persistence: At the end of each exchange, histories is saved to db.json so that returning users pick up exactly where they left off.
-	•	History trimming: Only the last few turns (e.g., 4–8 messages) are included in the prompt to balance context relevance and performance.
+* In-memory session state: During an active conversation, st.session_state.history maintains the complete dialogue for contextual replies.
+* Local persistence: At the end of each exchange, histories is saved to db.json so that returning users pick up exactly where they left off.
+* History trimming: Only the last few turns (e.g., 4–8 messages) are included in the prompt to balance context relevance and performance.
 
 ⸻
 
@@ -130,11 +126,11 @@ The backend converts raw questionnaire results into structured, AI-ready insight
 
 Several techniques were implemented to reduce perceived and actual latency:
 
-	•	Streaming responses: Instead of waiting for the entire model output, the assistant streams tokens live (stream=True), so the first words appear within ~1 second.
-	•	Context caching: Profile context (build_chat_context) is computed once per session and reused to avoid repeated heavy processing.
-	•	Token budget optimization: Trimmed conversation history and reduced maximum output tokens from 220 to 140, cutting model computation time.
-	•	Async persistence: Saving to db.json happens in the background so UI rendering isn’t blocked.
-	•	Top-N filtering: Limited the number of profile dimensions in context to shrink prompt size and speed API calls.
+* Streaming responses: Instead of waiting for the entire model output, the assistant streams tokens live (stream=True), so the first words appear within ~1 second.
+* Context caching: Profile context (build_chat_context) is computed once per session and reused to avoid repeated heavy processing.
+* Token budget optimization: Trimmed conversation history and reduced maximum output tokens from 220 to 140, cutting model computation time.
+* Async persistence: Saving to db.json happens in the background so UI rendering isn’t blocked.
+* Top-N filtering: Limited the number of profile dimensions in context to shrink prompt size and speed API calls.
 
 ## 📈 Performance Evaluation
 
