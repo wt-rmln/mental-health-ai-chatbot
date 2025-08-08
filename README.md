@@ -1,6 +1,5 @@
 # 🌟 Mental Health AI Chatbot
-An AI Chatbot which utilize a series of structured questionnaire data files to build profile-aware conversations and support dual-perspective analysis (Teenager & Parent). This chatbot can understand user profile data and provide accurate, context-
-aware answers. It is a functional demo of a Chatbot that:
+An AI Chatbot which utilize a series of structured questionnaire data files to build profile-aware conversations and support dual-perspective analysis (Teenager & Parent). This chatbot can understand user profile data and provide accurate, context-aware answers. It is a functional demo of a Chatbot that:
 1. Can conduct basic Q&A conversations with the user.
 2. Understands and uses a given User Profile to generate personalized, accurate responses.
 3. Maintains response consistency and context awareness during the conversation.
