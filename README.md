@@ -135,9 +135,8 @@ Several techniques were implemented to reduce perceived and actual latency:
 
 * Streaming responses: Instead of waiting for the entire model output, the assistant streams tokens live (stream=True), so the first words appear within ~1 second.
 * Context caching: Profile context (build_chat_context) is computed once per session and reused to avoid repeated heavy processing.
-* Token budget optimization: Trimmed conversation history and reduced maximum output tokens from 220 to 140, cutting model computation time.
+* Token budget optimization: Trimmed conversation history and reduced maximum output tokens, cutting model computation time.
 * Async persistence: Saving to db.json happens in the background so UI rendering isn’t blocked.
-* Top-N filtering: Limited the number of profile dimensions in context to shrink prompt size and speed API calls.
 
 ## 📈 Performance Evaluation
 
