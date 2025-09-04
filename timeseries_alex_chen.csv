@@ -1,0 +1,139 @@
+child_name,month,dimension,parent_avg,teen_avg,gap
+Alex Chen,2025-02,Abstract Conceptualization,2.6666666666666665,4.5,-1.8333333333333335
+Alex Chen,2025-07,Acceptance,2.0,3.5,-1.5
+Alex Chen,2025-08,Active Experimentation,1.5,3.0,-1.5
+Alex Chen,2025-01,Analysis,5.0,3.0,2.0
+Alex Chen,2025-02,Analyticity,2.6666666666666665,2.3333333333333335,0.33333333333333304
+Alex Chen,2025-02,Anger Management,4.333333333333333,3.0,1.333333333333333
+Alex Chen,2025-08,Anger Management,3.3333333333333335,4.0,-0.6666666666666665
+Alex Chen,2025-01,Approach-Avoidance Style,1.0,3.0,-2.0
+Alex Chen,2025-04,Approach-Avoidance Style,4.0,2.5,1.5
+Alex Chen,2025-07,Attention,2.3333333333333335,2.5,-0.16666666666666652
+Alex Chen,2025-02,Attitude,1.0,3.3333333333333335,-2.3333333333333335
+Alex Chen,2025-07,Attitude,5.0,2.3333333333333335,2.6666666666666665
+Alex Chen,2025-08,Attitude,2.0,1.6666666666666667,0.33333333333333326
+Alex Chen,2025-06,Autonomy,3.0,3.0,0.0
+Alex Chen,2025-04,Awareness,2.5,3.5,-1.0
+Alex Chen,2025-06,Awareness,4.5,2.3333333333333335,2.1666666666666665
+Alex Chen,2025-02,BAS Drive,5.0,2.0,3.0
+Alex Chen,2025-06,BAS Drive,4.0,3.0,1.0
+Alex Chen,2025-01,BAS Fun Seeking,2.3333333333333335,5.0,-2.6666666666666665
+Alex Chen,2025-04,BIS,2.5,2.0,0.5
+Alex Chen,2025-06,BIS,2.5,2.0,0.5
+Alex Chen,2025-01,Behavior Management,0.0,,
+Alex Chen,2025-04,Behavior Management,0.0,,
+Alex Chen,2025-07,Behavior Management,0.0,,
+Alex Chen,2025-08,Behavior Management,0.0,,
+Alex Chen,2025-01,Behavioral Manifestation,3.0,4.0,-1.0
+Alex Chen,2025-08,Behavioral Manifestation,4.5,4.333333333333333,0.16666666666666696
+Alex Chen,2025-02,Care,3.0,3.3333333333333335,-0.3333333333333335
+Alex Chen,2025-07,Care,5.0,5.0,0.0
+Alex Chen,2025-08,Care,5.0,3.5,1.5
+Alex Chen,2025-06,Clarity,3.5,2.0,1.5
+Alex Chen,2025-07,Clarity,1.0,3.3333333333333335,-2.3333333333333335
+Alex Chen,2025-01,Cognitive Skills,3.3333333333333335,4.0,-0.6666666666666665
+Alex Chen,2025-08,Cognitive Skills,0.0,4.0,-4.0
+Alex Chen,2025-01,Compromising,2.6666666666666665,3.0,-0.3333333333333335
+Alex Chen,2025-04,Compromising,4.0,3.6666666666666665,0.3333333333333335
+Alex Chen,2025-02,Concrete Experience,3.0,0.0,3.0
+Alex Chen,2025-06,Concrete Experience,1.5,2.5,-1.0
+Alex Chen,2025-04,Conduct Problems,4.0,3.0,1.0
+Alex Chen,2025-02,Conflict,2.3333333333333335,2.5,-0.16666666666666652
+Alex Chen,2025-04,Conflict,3.3333333333333335,2.0,1.3333333333333335
+Alex Chen,2025-02,Cooperation,2.5,3.0,-0.5
+Alex Chen,2025-01,Creativity,4.0,1.5,2.5
+Alex Chen,2025-04,Creativity,4.0,3.3333333333333335,0.6666666666666665
+Alex Chen,2025-02,Daily Living Skills,3.0,2.0,1.0
+Alex Chen,2025-07,Daily Living Skills,2.0,2.0,0.0
+Alex Chen,2025-08,Daily Living Skills,3.0,1.6666666666666667,1.3333333333333333
+Alex Chen,2025-06,Depression,4.666666666666667,2.3333333333333335,2.3333333333333335
+Alex Chen,2025-08,Depression,2.0,2.0,0.0
+Alex Chen,2025-07,Dominating,4.0,2.0,2.0
+Alex Chen,2025-08,Dominating,4.0,3.6666666666666665,0.3333333333333335
+Alex Chen,2025-01,Emotional Regulation,,0.0,
+Alex Chen,2025-04,Emotional Regulation,,0.0,
+Alex Chen,2025-06,Emotional Regulation,,0.0,
+Alex Chen,2025-08,Emotional Regulation,,0.0,
+Alex Chen,2025-01,Emotional Stability,1.0,3.3333333333333335,-2.3333333333333335
+Alex Chen,2025-06,Emotional Stability,2.0,0.0,2.0
+Alex Chen,2025-07,Emotional Stability,3.0,1.0,2.0
+Alex Chen,2025-04,Emotional Symptoms,4.5,2.0,2.5
+Alex Chen,2025-08,Emotional Symptoms,2.0,2.0,0.0
+Alex Chen,2025-01,Empathy,5.0,4.0,1.0
+Alex Chen,2025-08,Empathy,3.5,4.0,-0.5
+Alex Chen,2025-04,Evaluation,3.3333333333333335,3.6666666666666665,-0.33333333333333304
+Alex Chen,2025-06,Evaluation,2.6666666666666665,4.5,-1.8333333333333335
+Alex Chen,2025-01,Executive Function,3.0,4.333333333333333,-1.333333333333333
+Alex Chen,2025-06,Expressive Suppression,3.0,4.333333333333333,-1.333333333333333
+Alex Chen,2025-02,Family Cohesion,3.0,1.5,1.5
+Alex Chen,2025-06,Family Cohesion,4.0,3.0,1.0
+Alex Chen,2025-02,Family Dynamics,0.0,,
+Alex Chen,2025-02,Family Flexibility,3.0,4.666666666666667,-1.666666666666667
+Alex Chen,2025-01,General,0.0,0.0,0.0
+Alex Chen,2025-02,General,0.0,0.0,0.0
+Alex Chen,2025-04,General,0.0,0.0,0.0
+Alex Chen,2025-06,General,0.0,0.0,0.0
+Alex Chen,2025-07,General,0.0,0.0,0.0
+Alex Chen,2025-08,General,0.0,0.0,0.0
+Alex Chen,2025-08,Goal Persistence,4.666666666666667,2.6666666666666665,2.0000000000000004
+Alex Chen,2025-02,Imagination,3.0,2.0,1.0
+Alex Chen,2025-06,Imagination,5.0,4.0,1.0
+Alex Chen,2025-07,Imagination,3.0,3.0,0.0
+Alex Chen,2025-07,Inference,2.5,4.0,-1.5
+Alex Chen,2025-07,Information Processing,3.3333333333333335,4.0,-0.6666666666666665
+Alex Chen,2025-08,Information Processing,3.0,4.333333333333333,-1.333333333333333
+Alex Chen,2025-04,Involvement,2.6666666666666665,4.0,-1.3333333333333335
+Alex Chen,2025-01,Leadership,4.333333333333333,3.3333333333333335,0.9999999999999996
+Alex Chen,2025-04,Leadership,4.0,1.0,3.0
+Alex Chen,2025-08,Mastery-Avoidance,4.0,3.5,0.5
+Alex Chen,2025-06,Maturity of Judgment,5.0,5.0,0.0
+Alex Chen,2025-07,Maturity of Judgment,5.0,2.5,2.5
+Alex Chen,2025-08,Maturity of Judgment,3.0,4.0,-1.0
+Alex Chen,2025-07,Motivation,3.0,5.0,-2.0
+Alex Chen,2025-04,Motor Skills,4.0,5.0,-1.0
+Alex Chen,2025-01,Negative Affect,0.0,4.0,-4.0
+Alex Chen,2025-06,Obliging,0.0,1.0,-1.0
+Alex Chen,2025-02,Open-mindedness,0.0,4.0,-4.0
+Alex Chen,2025-04,Open-mindedness,1.6666666666666667,3.3333333333333335,-1.6666666666666667
+Alex Chen,2025-07,Open-mindedness,3.0,3.5,-0.5
+Alex Chen,2025-01,Peer Relationship Problems,2.3333333333333335,1.5,0.8333333333333335
+Alex Chen,2025-01,Performance-Approach,3.6666666666666665,3.5,0.16666666666666652
+Alex Chen,2025-01,Performance-Avoidance,4.0,3.3333333333333335,0.6666666666666665
+Alex Chen,2025-06,Performance-Avoidance,2.3333333333333335,1.5,0.8333333333333335
+Alex Chen,2025-07,Performance-Avoidance,2.6666666666666665,2.0,0.6666666666666665
+Alex Chen,2025-01,Perseverance of Effort,2.0,2.3333333333333335,-0.3333333333333335
+Alex Chen,2025-04,Personal Distress,3.5,3.6666666666666665,-0.16666666666666652
+Alex Chen,2025-06,Positive Affect,3.0,2.6666666666666665,0.3333333333333335
+Alex Chen,2025-01,Problem-Solving Confidence,4.5,1.0,3.5
+Alex Chen,2025-06,Problem-Solving Confidence,1.3333333333333333,4.333333333333333,-3.0
+Alex Chen,2025-06,Prosocial Behavior,2.5,4.0,-1.5
+Alex Chen,2025-08,Prosocial Behavior,3.5,4.0,-0.5
+Alex Chen,2025-01,Reflective Observation,1.0,1.5,-0.5
+Alex Chen,2025-01,Regulation of Cognition,2.5,3.0,-0.5
+Alex Chen,2025-02,Regulation of Cognition,5.0,1.5,3.5
+Alex Chen,2025-02,Resilience,2.6666666666666665,3.6666666666666665,-1.0
+Alex Chen,2025-07,Resilience,1.3333333333333333,4.0,-2.666666666666667
+Alex Chen,2025-08,Resilience,1.0,2.5,-1.5
+Alex Chen,2025-06,Role Orientation,3.3333333333333335,4.666666666666667,-1.3333333333333335
+Alex Chen,2025-01,Self-Control,2.5,3.0,-0.5
+Alex Chen,2025-02,Self-Control,3.5,2.5,1.0
+Alex Chen,2025-08,Self-Control,1.0,2.5,-1.5
+Alex Chen,2025-02,Self-Testing,3.0,2.0,1.0
+Alex Chen,2025-01,Social Skills,,0.0,
+Alex Chen,2025-02,Social Skills,,0.0,
+Alex Chen,2025-04,Social Skills,4.0,2.0,2.0
+Alex Chen,2025-06,Social Skills,,0.0,
+Alex Chen,2025-07,Social Skills,3.3333333333333335,2.5,0.8333333333333335
+Alex Chen,2025-08,Social Skills,4.5,4.0,0.5
+Alex Chen,2025-04,Socialization,2.6666666666666665,3.0,-0.3333333333333335
+Alex Chen,2025-07,Socialization,3.6666666666666665,2.5,1.1666666666666665
+Alex Chen,2025-02,Study Aids,3.0,3.3333333333333335,-0.3333333333333335
+Alex Chen,2025-06,Study Aids,2.3333333333333335,2.6666666666666665,-0.33333333333333304
+Alex Chen,2025-02,Systematicity,4.0,2.3333333333333335,1.6666666666666665
+Alex Chen,2025-04,Test Strategies,3.0,4.0,-1.0
+Alex Chen,2025-04,Time Management,4.0,1.0,3.0
+Alex Chen,2025-04,Truth-seeking,2.3333333333333335,3.0,-0.6666666666666665
+Alex Chen,2025-07,Truth-seeking,1.5,3.5,-2.0
+Alex Chen,2025-04,Well-being,1.0,2.6666666666666665,-1.6666666666666665
+Alex Chen,2025-07,Well-being,3.0,4.0,-1.0
+Alex Chen,2025-08,Worry Management,1.6666666666666667,3.0,-1.3333333333333333
